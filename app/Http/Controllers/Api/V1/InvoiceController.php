@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 use App\Http\Resources\V1\InvoiceResource;
 use App\Models\Invoice;
 use App\Traits\HttpResponses;
@@ -12,13 +12,17 @@ use Illuminate\Support\Facades\Validator;
 class InvoiceController extends Controller
 {
     use HttpResponses;
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+   
+    public function __construct()
     {
-        $invoices = Invoice::with('user')->get(); 
-        return InvoiceResource::collection($invoices);
+      $this->middleware(['auth:sanctum', 'abilities:invoice-store,user-update'])->only(['store', 'update']);    
+    }
+  
+    public function index(Request $request)
+    {
+       
+
+       return(new Invoice())->filter($request);
     }
 
     /**
