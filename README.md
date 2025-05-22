@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Api-Laravel
+# api-laravel-realizacao-de-pagamento
 
 ## Sobre o Projeto
 - Esse projeto se trata de de uma api, no qual é cadastro a forma de pagamento realizado por um determinado cliente
